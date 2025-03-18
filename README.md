@@ -7,8 +7,8 @@ You only provide:
 
 ```hcl
 module "s3-endpoint-gateway" {
-    source  = "mrnim94/vpc-endpoint-gateway/aws"
-    version = "0.0.1"
+    source  = "aws-terraform-module/vpc-endpoint-gateway/aws"
+    version = "1.0.0"
     vpc_id  = vpc-06f018be62beabffd
     service_name = "com.amazonaws.eu-central-1.s3"
 }
@@ -24,8 +24,8 @@ Besides, you can determine the specific routes in VPC:
 
 ```hcl
 module "s3-endpoint-gateway" {
-    source  = "mrnim94/vpc-endpoint-gateway/aws"
-    version = "0.0.1"
+    source  = "aws-terraform-module/vpc-endpoint-gateway/aws"
+    version = "1.0.0"
     vpc_id  = vpc-06f018be62beabffd
     service_name = "com.amazonaws.eu-central-1.s3"
     route_table_ids = ["rtb-01a34cd8a5106b00c"]
@@ -38,8 +38,8 @@ Default: If route\_table\_ids are not provided, the module will attach all route
 
 ```hcl
 module "s3-endpoint-gateway" {
-    source  = "mrnim94/vpc-endpoint-gateway/aws"
-    version = "0.0.1"
+    source  = "aws-terraform-module/vpc-endpoint-gateway/aws"
+    version = "1.0.0"
     vpc_id  = vpc-06f018be62beabffd
     service_name = "com.amazonaws.eu-central-1.s3"
     route_table_ids = ["rtb-01a34cd8a5106b00c"]
@@ -62,8 +62,8 @@ data terraform_remote_state "network" {
  
 
 module "documentdb-mongodb" {
-    source  = "mrnim94/vpc-endpoint-gateway/aws"
-    version = "0.0.1"
+    source  = "aws-terraform-module/vpc-endpoint-gateway/aws"
+    version = "1.0.0"
     vpc_id  = data.terraform_remote_state.network.outputs.vpc_id
     service_name = "com.amazonaws.eu-central-1.s3"
     route_table_ids = ["rtb-01a34cd8a5106b00c"]
