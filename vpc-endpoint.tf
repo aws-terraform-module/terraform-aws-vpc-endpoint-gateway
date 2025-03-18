@@ -8,19 +8,7 @@ resource "aws_vpc_endpoint" "s3" {
   route_table_ids   =  length(var.route_table_ids) > 0 ? var.route_table_ids : data.aws_route_tables.network.ids
   vpc_endpoint_type = "Gateway"
 
-  policy = <<POLICY
-{
-  "Version": "2008-10-17",
-  "Statement": [
-    {
-      "Action": "*",
-      "Effect": "Allow",
-      "Resource": "*",
-      "Principal": "*"
-    }
-  ]
-}
-POLICY
+  policy = var.vpc_endpoint_policy
 
   tags = {
     Name = var.vpc_gateway_endpoint_name != "" ? "${var.vpc_gateway_endpoint_name}-${var.service_name}" : var.service_name
